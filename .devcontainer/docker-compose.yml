@@ -29,12 +29,15 @@ services:
       WORDPRESS_DB_PASSWORD: wp_pass
       WORDPRESS_DB_NAME: wordpress-dev
       WORDPRESS_DEBUG: 1
+      WORDPRESS_ADMIN_USER: admin
+      WORDPRESS_ADMIN_PASSORD: password
+      WORDPRESS_ADMIN_EMAIL: admin@localhost.com
     # Similar to MySQL image variables, the last four lines define the main variables needed for the WordPress container to work properly with the MySQL container.
     links:
       - db
     volumes:
       - wordpress:/var/www/html
-      - ../:/application
+      - ../root/:/application/root/
 
 volumes:
   wordpress:
